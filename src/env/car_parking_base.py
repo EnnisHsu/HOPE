@@ -258,6 +258,7 @@ class CarParking(gym.Env):
         if action is not None:
             for simu_step_num in range(NUM_STEP):
                 prev_info = self.vehicle.step(action,step_time=1)
+                print(f"Simu_step_num[{simu_step_num}/{NUM_STEP}] | Action: {action}")
                 if self._check_arrived():
                     arrive = True
                     break
@@ -267,6 +268,7 @@ class CarParking(gym.Env):
                         self.vehicle.retreat(prev_info)
                     else:
                         self.vehicle.retreat(prev_info)
+                    print(f"Collision detected at step {simu_step_num}, vehicle box {self.vehicle.box}, retreating to previous state.")
                     simu_step_num -= 1
                     break
             simu_step_num += 1

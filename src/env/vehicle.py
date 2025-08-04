@@ -93,6 +93,7 @@ class KSModel(object):
                     new_state.speed * np.tan(new_state.steering) / self.wheel_base * self.step_len/self.mini_iter 
 
         new_state.loc = Point(x, y)
+        # print(f"previous_state: {state.get_pos()}, action: {action}, new_state: {new_state.get_pos()}")
         return new_state
 
 

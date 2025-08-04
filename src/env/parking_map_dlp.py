@@ -14,7 +14,7 @@ from configs import *
 
 class ParkingMapDLP(object):
     default = {
-        'path': '../data/dlp.data'
+        'path': '../data/docking_multist_map.data'
     }
     def __init__(self):
 

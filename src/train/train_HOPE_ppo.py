@@ -36,6 +36,9 @@ class SceneChoose():
         
         
     def choose_case(self,):
+        chosen_scene = 3  # 'dlp' corresponds to key 3
+        self.scene_record.append(chosen_scene)  # Record the chosen scene
+        return self.scene_types[chosen_scene]
         if len(self.scene_record) < self.history_horizon:
             scene_chosen = self._choose_case_uniform()
         else:
@@ -101,7 +104,7 @@ if __name__=="__main__":
     
     parser = argparse.ArgumentParser()
     parser.add_argument('--agent_ckpt', type=str, default=None) # './model/ckpt/PPO.pt'
-    parser.add_argument('--img_ckpt', type=str, default='./model/ckpt/autoencoder.pt')
+    parser.add_argument('--img_ckpt', type=str, default=None) # './model/ckpt/autoencoder.pt'
     parser.add_argument('--train_episode', type=int, default=100000)
     parser.add_argument('--eval_episode', type=int, default=2000)
     parser.add_argument('--verbose', type=bool, default=True)
